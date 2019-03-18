@@ -1,5 +1,7 @@
 package animals;
 
+import java.util.Objects;
+
 public class Animal {
 
   private String name;
@@ -79,5 +81,37 @@ public class Animal {
 
   public void setFeedLevel(int feedLevel) {
     this.feedLevel = feedLevel;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Animal animal = (Animal) o;
+    return age == animal.age &&
+        Float.compare(animal.speed, speed) == 0 &&
+        feedLevel == animal.feedLevel &&
+        Objects.equals(name, animal.name) &&
+        Objects.equals(color, animal.color);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, age, color, speed, feedLevel);
+  }
+
+  @Override
+  public String toString() {
+    return "Animal{" +
+        "name='" + name + '\'' +
+        ", age=" + age +
+        ", color='" + color + '\'' +
+        ", speed=" + speed +
+        ", feedLevel=" + feedLevel +
+        '}';
   }
 }

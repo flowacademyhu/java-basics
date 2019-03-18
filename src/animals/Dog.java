@@ -5,14 +5,7 @@ public class Dog extends Animal {
   private boolean nice;
 
   public Dog() {
-//    this.name = "Dog";
-//    super("Dog");
-    this.setName("Cat");
-  }
-
-  @Override
-  public void setName(String name) {
-    super.setName("Dog");
+    super("Dog");
   }
 
   public boolean isNice() {
@@ -21,5 +14,23 @@ public class Dog extends Animal {
 
   public void setNice(boolean nice) {
     this.nice = nice;
+  }
+
+  @Override
+  public String toString() {
+    String string = super.toString();
+    String shortString = string.substring(0, string.length() - 1);
+    shortString += ", nice=" + this.nice + "}";
+    return shortString;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    return super.equals(o);
+  }
+
+  @Override
+  public int hashCode() {
+    return super.hashCode();
   }
 }

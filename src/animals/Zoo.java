@@ -12,6 +12,10 @@ public class Zoo {
 
   private Animal[] animals;
 
+  public void addAnimal(Animal animal) {
+    this.animals[0] = animal;
+  }
+
   @Override
   public String toString() {
     return "Zoo{" +
@@ -44,6 +48,7 @@ public class Zoo {
   public Zoo(String name, String owner) {
     this.name = name;
     this.owner = owner;
+    this.animals = new Animal[1];
     System.out.println("Zoo created!");
   }
 
@@ -65,6 +70,14 @@ public class Zoo {
 
   public Animal[] getAnimals() {
     return animals;
+  }
+
+  public Animal getAnimal(int index) {
+    if (index >= animals.length) {
+      // TODO throw exception
+      return null;
+    }
+    return animals[index];
   }
 
   public void setAnimals(Animal[] animals) {
