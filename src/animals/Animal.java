@@ -2,7 +2,7 @@ package animals;
 
 import java.util.Objects;
 
-public class Animal {
+public abstract class Animal {
 
   private String name;
 
@@ -83,6 +83,8 @@ public class Animal {
     this.feedLevel = feedLevel;
   }
 
+  public abstract Class<?> getType();
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -106,7 +108,7 @@ public class Animal {
 
   @Override
   public String toString() {
-    return "Animal{" +
+    return getType().getTypeName() + "{" +
         "name='" + name + '\'' +
         ", age=" + age +
         ", color='" + color + '\'' +

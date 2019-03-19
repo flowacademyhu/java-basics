@@ -17,4 +17,9 @@ public class Horse extends Animal {
     return super.hashCode();
   }
 
+  @Override
+  public Class<?> getType() {
+    return this.getClass();
+  }
+
 }

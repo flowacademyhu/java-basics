@@ -1,6 +1,9 @@
 package animals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -10,10 +13,13 @@ public class Zoo {
 
   private String owner;
 
-  private Animal[] animals;
+//  private Animal[] animals;
+
+  private final List<Animal> animalList;
 
   public void addAnimal(Animal animal) {
-    this.animals[0] = animal;
+//    this.animals[0] = animal;
+    this.animalList.add(animal);
   }
 
   @Override
@@ -21,7 +27,7 @@ public class Zoo {
     return "Zoo{" +
         "name='" + name + '\'' +
         ", owner='" + owner + '\'' +
-        ", animals=" + Arrays.toString(animals) +
+        ", animals=" + animalList.toString() +
         '}';
   }
 
@@ -48,7 +54,7 @@ public class Zoo {
   public Zoo(String name, String owner) {
     this.name = name;
     this.owner = owner;
-    this.animals = new Animal[1];
+    this.animalList = new ArrayList<>();
     System.out.println("Zoo created!");
   }
 
@@ -68,19 +74,16 @@ public class Zoo {
     this.owner = owner;
   }
 
-  public Animal[] getAnimals() {
-    return animals;
-  }
-
   public Animal getAnimal(int index) {
-    if (index >= animals.length) {
+    if (index >= animalList.size()) {
       // TODO throw exception
       return null;
     }
-    return animals[index];
+    return animalList.get(index);
   }
 
-  public void setAnimals(Animal[] animals) {
-    this.animals = animals;
+
+  public List<Animal> getAnimalList() {
+    return animalList;
   }
 }

@@ -8,6 +8,12 @@ public class Dog extends Animal {
     super("Dog");
   }
 
+  @Override
+  public Class<?> getType() {
+//    return Dog.class;
+    return this.getClass();
+  }
+
   public boolean isNice() {
     return nice;
   }

@@ -16,4 +16,9 @@ public class Cat extends Animal {
   public int hashCode() {
     return super.hashCode();
   }
+
+  @Override
+  public Class<?> getType() {
+    return this.getClass();
+  }
 }
